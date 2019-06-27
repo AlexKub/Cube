@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AAADA1CE-F5FA-4ADD-8801-8677DB263594}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cube</RootNamespace>
+    <AssemblyName>Cube</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Extensions.cs" />
+    <Compile Include="Core\ManualTimer.cs" />
+    <Compile Include="Core\MessageBox.cs" />
+    <Compile Include="Core\Environment\AssemblyManager.cs" />
+    <Compile Include="Core\Environment\AssemblyRegContext.cs" />
+    <Compile Include="Core\Environment\Cmd.cs" />
+    <Compile Include="Core\Environment\GAC.cs" />
+    <Compile Include="Core\Environment\MachineType.cs" />
+    <Compile Include="Core\Environment\RegAsm.cs" />
+    <Compile Include="Core\Environment\RegistrationResult.cs" />
+    <Compile Include="Core\Environment\VSConstants.cs" />
+    <Compile Include="Core\Flags\BitEnumExtension.cs" />
+    <Compile Include="Core\Flags\BitEnumHelper.cs" />
+    <Compile Include="Core\StratupArguments\BoolArgAttribute.cs" />
+    <Compile Include="Core\StratupArguments\IntArgAttribute.cs" />
+    <Compile Include="Core\StratupArguments\MultiStringArgAttribute.cs" />
+    <Compile Include="Core\StratupArguments\StartupArgBaseAttribute.cs" />
+    <Compile Include="Core\StratupArguments\StartupArgMultiValueAttribute.cs" />
+    <Compile Include="Core\StratupArguments\StartupArgs.cs" />
+    <Compile Include="Core\StratupArguments\StartupArgValueAttribute.cs" />
+    <Compile Include="Core\StratupArguments\StringArgAttribute.cs" />
+    <Compile Include="Core\Services\AccountType.cs" />
+    <Compile Include="Core\Services\AccountTypeValueAttribute.cs" />
+    <Compile Include="Core\Services\WinService.cs" />
+    <Compile Include="Core\Services\WinService.Static.cs" />
+    <Compile Include="Core\ServiceStatus.cs" />
+    <Compile Include="Core\Utilites.cs" />
+    <Compile Include="Core_2_0\Constants.cs" />
+    <Compile Include="Core_2_0\DllImport\advapi32.cs" />
+    <Compile Include="Core_2_0\DllImport\kernel32.cs" />
+    <Compile Include="Core_2_0\DllImport\rstrtmgr.cs" />
+    <Compile Include="Core_2_0\FileLockChecker.cs" />
+    <Compile Include="Core_2_0\MachineType.cs" />
+    <Compile Include="Core_2_0\Manifest\ControlAddInFileItem.cs" />
+    <Compile Include="Core_2_0\Manifest\ECRManifest.cs" />
+    <Compile Include="Core_2_0\Manifest\IControlAddinFileItem.cs" />
+    <Compile Include="Core_2_0\Manifest\IManifestFileItem.cs" />
+    <Compile Include="Core_2_0\Manifest\IRegInfo.cs" />
+    <Compile Include="Core_2_0\Manifest\LogSettingsManifest.cs" />
+    <Compile Include="Core_2_0\Manifest\ManifestFileItem.cs" />
+    <Compile Include="Core_2_0\Manifest\ManifestHeader.cs" />
+    <Compile Include="Core_2_0\Manifest\RegInfo.cs" />
+    <Compile Include="Core_2_0\Manifest\RegistrationActions.cs" />
+    <Compile Include="Core_2_0\Manifest\RTCManifest.cs" />
+    <Compile Include="Core_2_0\Manifest\UpdateSettings.cs" />
+    <Compile Include="Core_2_0\Manifest\XmlManifest.cs" />
+    <Compile Include="Core_2_0\Manifest\XmlSerializationException.cs" />
+    <Compile Include="Core_2_0\MutexLocker.cs" />
+    <Compile Include="Core_2_0\OSBitness.cs" />
+    <Compile Include="Core_2_0\ProcessorArchitecture.cs" />
+    <Compile Include="Core_2_0\RuntimeVersions.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\AppDomainResolver.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\DomainSession.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\ExternalAppDomainAssembly.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\LoadedState.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\MarshalingResult.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAppDomain.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssembly.cs" />
+    <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssemblyManager.cs" />
+    <Compile Include="Core_2_0\Utilites.cs" />
+    <Compile Include="Log\Endpoints\DefaultStringFileEndpoint.cs" />
+    <Compile Include="Log\Endpoints\LogEndpoint.cs" />
+    <Compile Include="Log\Endpoints\WindowsEventLogEndpoint.cs" />
+    <Compile Include="Log\Extensions.cs" />
+    <Compile Include="Log\GlobalLogManager.cs" />
+    <Compile Include="Log\ILogManagerSettings.cs" />
+    <Compile Include="Log\ILogParameter.cs" />
+    <Compile Include="Log\ILogSettings.cs" />
+    <Compile Include="Log\LogMessageAction.cs" />
+    <Compile Include="Log\LogMessageBuilder.cs" />
+    <Compile Include="Log\Managers\Custom\DefaultFileLogManager.cs" />
+    <Compile Include="Log\Managers\Custom\DefaultWinLogManager.cs" />
+    <Compile Include="Log\Managers\LogManager.cs" />
+    <Compile Include="Log\Managers\StringLogManager.cs" />
+    <Compile Include="Log\Managers\TypeLogMessageBuilder.cs" />
+    <Compile Include="Log\MutexLocker.cs" />
+    <Compile Include="Log\Parameters\LogActionParameter.cs" />
+    <Compile Include="Log\Parameters\LogParameter.cs" />
+    <Compile Include="Log\Parameters\MaskedParameter.cs" />
+    <Compile Include="Log\Settings\DefaultLogSettings.cs" />
+    <Compile Include="Log\Settings\EndpointSetting.cs" />
+    <Compile Include="Log\Settings\LogActionFlag.cs" />
+    <Compile Include="Log\Settings\LogManagerSettings.cs" />
+    <Compile Include="Log\Settings\LogSettings.cs" />
+    <Compile Include="Log\Settings\XmlManifest.cs" />
+    <Compile Include="Log\Settings\XmlSerializationException.cs" />
+    <Compile Include="Log\Utilites.cs" />
+    <Compile Include="Log\WinLogMessageType.cs" />
+    <Compile Include="MVC\AvailableViewActionAttribute.cs" />
+    <Compile Include="MVC\ControllerActionsInfo.cs" />
+    <Compile Include="MVC\ControllersViewContext.cs" />
+    <Compile Include="MVC\ControllerViewMethodInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AppDomainResolver.cs" />
+    <Compile Include="Transaction\ErrorParameter.cs" />
+    <Compile Include="Transaction\Extensions.cs" />
+    <Compile Include="Transaction\IErrorsCollection.cs" />
+    <Compile Include="Transaction\IOperationResult.cs" />
+    <Compile Include="Transaction\IProjectContext.cs" />
+    <Compile Include="Transaction\IProjectContextHost.cs" />
+    <Compile Include="Transaction\IProjectTransaction.cs" />
+    <Compile Include="Transaction\OperationResult.cs" />
+    <Compile Include="Transaction\OperationResultMark.cs" />
+    <Compile Include="Transaction\Setings\IValidated.cs" />
+    <Compile Include="Transaction\Setings\SettingsCollection.cs" />
+    <Compile Include="Transaction\Setings\XmlCollection.cs" />
+    <Compile Include="Transaction\Setings\XmlDistinctCollection.cs" />
+    <Compile Include="Transaction\Transaction.cs" />
+    <Compile Include="Transaction\TransactionContext.cs" />
+    <Compile Include="Transaction\TransactionError.cs" />
+    <Compile Include="Transaction\TransactionOperationError.cs" />
+    <Compile Include="Transaction\TransactionResult.cs" />
+    <Compile Include="Transaction\ValidationResult.cs" />
+    <Compile Include="WPF\ArgsHelpWindow.xaml.cs" />
+    <Compile Include="WPF\Commands\ActionCommand.cs" />
+    <Compile Include="WPF\Commands\RelayCommand.cs" />
+    <Compile Include="WPF\Commands\SimpleCommand.cs" />
+    <Compile Include="WPF\Constants.cs" />
+    <Compile Include="WPF\Converters\IntStringConverter.cs" />
+    <Compile Include="WPF\Converters\InvertBoolConverter.cs" />
+    <Compile Include="WPF\Converters\MultiBoolConverter.cs" />
+    <Compile Include="WPF\Converters\VisibilityConverter.cs" />
+    <Compile Include="WPF\CopyWindow.xaml.cs" />
+    <Compile Include="WPF\Extensions.cs" />
+    <Compile Include="WPF\ListViewWindow.xaml.cs" />
+    <Compile Include="WPF\RTCServerView.xaml.cs" />
+    <Compile Include="WPF\SaveAsWindow.xaml.cs" />
+    <Compile Include="WPF\Settings\AppSettingBase.cs" />
+    <Compile Include="WPF\Settings\ConfigFileWrapper.cs" />
+    <Compile Include="WPF\Settings\MachineSettings.cs" />
+    <Compile Include="WPF\Settings\MG_Settings.cs" />
+    <Compile Include="WPF\Settings\SettingsCollectionWrapper.cs" />
+    <Compile Include="WPF\Settings\UserSettings.cs" />
+    <Compile Include="WPF\SignManager.cs" />
+    <Compile Include="WPF\StaticMethods.cs" />
+    <Compile Include="WPF\StringCollectionEditWindow.xaml.cs" />
+    <Compile Include="WPF\StringEditWindow.xaml.cs" />
+    <Compile Include="WPF\Utilites.cs" />
+    <Compile Include="WPF\VersionWindow.xaml.cs" />
+    <Compile Include="WPF\ViewModelBase.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
