@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cube.Log
+{
+    /// <summary>
+    /// Контекст стокового логирования
+    /// </summary>
+    interface IStringLogingContext : ILogingContext
+    {
+    }
+}

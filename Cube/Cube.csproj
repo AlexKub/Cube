@@ -106,9 +106,15 @@
     <Compile Include="Log\Endpoints\WindowsEventLogEndpoint.cs" />
     <Compile Include="Log\Extensions.cs" />
     <Compile Include="Log\GlobalLogManager.cs" />
+    <Compile Include="Log\ILogingContext.cs" />
+    <Compile Include="Log\ILogManager.cs" />
     <Compile Include="Log\ILogManagerSettings.cs" />
-    <Compile Include="Log\ILogParameter.cs" />
+    <Compile Include="Log\ILogMessageBuilder.cs" />
+    <Compile Include="Log\IParametrizedLogingContext.cs" />
+    <Compile Include="Log\IStringLogingContext.cs" />
+    <Compile Include="Log\IStringLogParameter.cs" />
     <Compile Include="Log\ILogSettings.cs" />
+    <Compile Include="Log\LogManager.cs" />
     <Compile Include="Log\LogMessageAction.cs" />
     <Compile Include="Log\LogMessageBuilder.cs" />
     <Compile Include="Log\Managers\Custom\DefaultFileLogManager.cs" />
