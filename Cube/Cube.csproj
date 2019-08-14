@@ -170,9 +170,16 @@
     <Compile Include="WPF\SaveAsWindow.xaml.cs" />
     <Compile Include="WPF\Settings\AppSettingBase.cs" />
     <Compile Include="WPF\Settings\ConfigFileWrapper.cs" />
+    <Compile Include="WPF\Settings\Interfaces\IApplicationSetting.cs" />
+    <Compile Include="WPF\Settings\Interfaces\IApplicationSettingsProvider.cs" />
+    <Compile Include="WPF\Settings\Interfaces\ISettingsProvidersCollection.cs" />
+    <Compile Include="WPF\Settings\Interfaces\IVisibleApplicationSetting.cs" />
     <Compile Include="WPF\Settings\MachineSettings.cs" />
     <Compile Include="WPF\Settings\MG_Settings.cs" />
+    <Compile Include="WPF\Settings\MsSqlSettingsProvider.cs" />
     <Compile Include="WPF\Settings\SettingsCollectionWrapper.cs" />
+    <Compile Include="WPF\Settings\SettingsProviderCashe.cs" />
+    <Compile Include="WPF\Settings\SqlSettingsProvider.cs" />
     <Compile Include="WPF\Settings\UserSettings.cs" />
     <Compile Include="WPF\SignManager.cs" />
     <Compile Include="WPF\StaticMethods.cs" />
