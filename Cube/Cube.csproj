@@ -109,7 +109,9 @@
     <Compile Include="Log\ILogingContext.cs" />
     <Compile Include="Log\ILogManager.cs" />
     <Compile Include="Log\ILogManagerSettings.cs" />
+    <Compile Include="Log\ILogMessage.cs" />
     <Compile Include="Log\ILogMessageBuilder.cs" />
+    <Compile Include="Log\ILogReader.cs" />
     <Compile Include="Log\IParametrizedLogingContext.cs" />
     <Compile Include="Log\IStringLogingContext.cs" />
     <Compile Include="Log\IStringLogParameter.cs" />
