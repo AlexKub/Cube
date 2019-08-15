@@ -5,7 +5,8 @@ namespace Cube.Log
     /// <summary>
     /// Параметризированный контекст логирования
     /// </summary>
-    public interface IParametrizedLogingContext<TParameter> : ILogingContext
+    public interface IParametrizedLogingContext<TKey, TValue, TParameter> : ILogingContext
+        where TParameter : ILogParameter<TKey, TValue>
     {
         /// <summary>
         /// Флаг наличия параметров
@@ -15,7 +16,6 @@ namespace Cube.Log
         /// Параметры логирования
         /// </summary>
         ICollection<TParameter> Parameters { get; }
-
 
     }
 }

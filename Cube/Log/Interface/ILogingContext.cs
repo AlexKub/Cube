@@ -3,18 +3,10 @@
 namespace Cube.Log
 {
     /// <summary>
-    /// Контекст логирования
+    /// Управляющий контекст логирования
     /// </summary>
     public interface ILogingContext
     {
-        /// <summary>
-        /// Экземпляр исключения
-        /// </summary>
-        Exception Exception { get; }
-        /// <summary>
-        /// Описание логируемого события
-        /// </summary>
-        string Message { get; }
         /// <summary>
         /// Флаги логирования
         /// </summary>
