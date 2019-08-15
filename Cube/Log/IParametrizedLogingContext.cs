@@ -14,6 +14,8 @@ namespace Cube.Log
         /// <summary>
         /// Параметры логирования
         /// </summary>
-        IReadOnlyList<TParameter> Parameters { get; }
+        ICollection<TParameter> Parameters { get; }
+
+
     }
 }
