@@ -14,7 +14,7 @@ namespace Cube.Log
         /// <summary>
         /// Описание логируемого события
         /// </summary>
-        string Description { get; }
+        string Message { get; }
         /// <summary>
         /// Флаги логирования
         /// </summary>
