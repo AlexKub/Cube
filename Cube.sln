@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cube", "Cube\Cube.csproj", "{AAADA1CE-F5FA-4ADD-8801-8677DB263594}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{403AC741-8CAF-42A7-8853-85FD02B265FD}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\ToDo.docx = Documentation\ToDo.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Snippets", "Snippets", "{EE4F1D63-3ADD-4DAA-9F3D-6B64E40153DB}"
+	ProjectSection(SolutionItems) = preProject
+		Snippets\dbgd.snippet = Snippets\dbgd.snippet
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
