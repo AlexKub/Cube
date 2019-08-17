@@ -5,8 +5,10 @@ namespace Cube.Log
     /// <summary>
     /// Параметризированный контекст логирования
     /// </summary>
-    public interface IParametrizedLogingContext<TKey, TValue, TParameter> : ILogingContext
-        where TParameter : ILogParameter<TKey, TValue>
+    /// <typeparam name="TParameter">Тип параметра</typeparam>
+    /// <typeparam name="TValue">Тип заначения параметра</typeparam>
+    public interface IParametrizedLogingContext<TParameter, TValue> : ILogingContext
+        where TParameter : ILogParameter<TValue>
     {
         /// <summary>
         /// Флаг наличия параметров

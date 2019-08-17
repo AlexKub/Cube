@@ -101,11 +101,14 @@
     <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssembly.cs" />
     <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssemblyManager.cs" />
     <Compile Include="Core_2_0\Utilites.cs" />
+    <Compile Include="Log\DefaultStringBuilder.cs" />
     <Compile Include="Log\Endpoints\DefaultStringFileEndpoint.cs" />
     <Compile Include="Log\Endpoints\LogEndpoint.cs" />
     <Compile Include="Log\Endpoints\WindowsEventLogEndpoint.cs" />
+    <Compile Include="Log\ExceptionHandler.cs" />
     <Compile Include="Log\Extensions.cs" />
     <Compile Include="Log\GlobalLogManager.cs" />
+    <Compile Include="Log\Interface\IExceptionLoger.cs" />
     <Compile Include="Log\Interface\ILogContextEndpoint.cs" />
     <Compile Include="Log\Interface\ILogEndpoint.cs" />
     <Compile Include="Log\Interface\ILogingContext.cs" />
