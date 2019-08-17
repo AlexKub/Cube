@@ -5,7 +5,7 @@ namespace Cube.Log
     /// <summary>
     /// Параметризованная сущность
     /// </summary>
-    public interface IParametrizedLogingContext<TValue, TParameter>
+    public interface IParametrizedEntity<TValue, TParameter>
         where TParameter : ILogParameter<TValue>
     {
         /// <summary>
