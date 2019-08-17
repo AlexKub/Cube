@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace Cube.Log
 {
     /// <summary>
     /// Данные строкового логирования по умолчанию
     /// </summary>
+    [Browsable(false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
     [System.Diagnostics.DebuggerDisplay("{DebugDisplay()}")]
     public struct DefaultStringMessageData : IStringParameterizedEntity, IExceptionCarrier
     {
