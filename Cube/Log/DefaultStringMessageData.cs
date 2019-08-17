@@ -7,7 +7,7 @@ namespace Cube.Log
     /// Данные строкового логирования по умолчанию
     /// </summary>
     [System.Diagnostics.DebuggerDisplay("{DebugDisplay()}")]
-    internal struct DefaultStringMessageData : IStringParameterizedEntity, IExceptionCarrier
+    public struct DefaultStringMessageData : IStringParameterizedEntity, IExceptionCarrier
     {
         /// <summary>
         /// Сообщение логирования
