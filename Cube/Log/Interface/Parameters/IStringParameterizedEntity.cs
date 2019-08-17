@@ -3,7 +3,7 @@
     /// <summary>
     /// Контекст стокового логирования
     /// </summary>
-    interface IStringLogingContext : IParametrizedLogingContext<IStringLogParameter>
+    interface IStringParameterizedEntity : IParameterizedEntity<string, IStringLogParameter>
     {
 
     }
@@ -12,7 +12,7 @@
     /// Контекст стокового логирования
     /// </summary>
     /// <typeparam name="TParameter">Тип параметров</typeparam>
-    interface IStringLogingContext<TParameter> : IParametrizedLogingContext<TParameter>
+    interface IStringParameterizedEntity<TParameter> : IParameterizedEntity<string, TParameter>
         where TParameter : IStringLogParameter
     {
 

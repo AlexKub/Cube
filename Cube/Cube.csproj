@@ -120,9 +120,9 @@
     <Compile Include="Log\Interface\ILogReader.cs" />
     <Compile Include="Log\Interface\IMeassageBuilder.cs" />
     <Compile Include="Log\Interface\Parameters\INamedLogParameter.cs" />
-    <Compile Include="Log\Interface\Parameters\IParametrizedEntity.cs" />
-    <Compile Include="Log\Interface\IStringLogingContext.cs" />
+    <Compile Include="Log\Interface\Parameters\IParameterizedEntity.cs" />
     <Compile Include="Log\Interface\Parameters\IStringLogParameter.cs" />
+    <Compile Include="Log\Interface\Parameters\IStringParameterizedEntity.cs" />
     <Compile Include="Log\ILogSettings.cs" />
     <Compile Include="Log\Interface\Parameters\IUniqueLogParameter.cs" />
     <Compile Include="Log\Interface\LogManager.cs" />
