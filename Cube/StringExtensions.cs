@@ -16,10 +16,10 @@
         /// <summary>
         /// Возврат при пустой строке
         /// </summary>
-        public const string EMPTY = "NULL";
+        public const string EMPTY = "EMPTY";
 
         /// <summary>
-        /// НЕ пустое значение строки для логирования
+        /// Замена пустых значений строки на 'NULL' или 'EMPTY'
         /// </summary>
         /// <param name="value">Текущее значение строки</param>
         /// <returns>Возвращает текущее значение или строки-заместители, если оно пустое</returns>
