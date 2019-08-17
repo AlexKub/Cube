@@ -3,17 +3,17 @@
 namespace Cube.Log
 {
     /// <summary>
-    /// Параметризированный контекст логирования
+    /// Параметризованная сущность
     /// </summary>
-    public interface IParametrizedLogingContext<TKey, TValue, TParameter> : ILogingContext
-        where TParameter : ILogParameter<TKey, TValue>
+    public interface IParametrizedLogingContext<TValue, TParameter>
+        where TParameter : ILogParameter<TValue>
     {
         /// <summary>
         /// Флаг наличия параметров
         /// </summary>
         bool HasParameters { get; }
         /// <summary>
-        /// Параметры логирования
+        /// Параметры
         /// </summary>
         ICollection<TParameter> Parameters { get; }
 
