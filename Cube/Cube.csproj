@@ -101,6 +101,7 @@
     <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssembly.cs" />
     <Compile Include="Core_2_0\SeparatedAssemblyLoad\SeparatedAssemblyManager.cs" />
     <Compile Include="Core_2_0\Utilites.cs" />
+    <Compile Include="Log\DefaultStringFileEndpoint.cs" />
     <Compile Include="Log\DefaultStringMesageBuilder.cs" />
     <Compile Include="Log\DefaultStringMessageData.cs" />
     <Compile Include="Log\Endpoints\DefaultStringFileEndpoint.cs" />
@@ -126,6 +127,9 @@
     <Compile Include="Log\ILogSettings.cs" />
     <Compile Include="Log\Interface\Parameters\IUniqueLogParameter.cs" />
     <Compile Include="Log\Interface\LogManager.cs" />
+    <Compile Include="Log\LogMembersAttribute.cs" />
+    <Compile Include="Log\LogMembers.cs" />
+    <Compile Include="Log\LogMembersInheritedAttribute.cs" />
     <Compile Include="Log\LogMessageAction.cs" />
     <Compile Include="Log\LogMessageBuilder.cs" />
     <Compile Include="Log\Managers\Custom\DefaultFileLogManager.cs" />
@@ -144,7 +148,9 @@
     <Compile Include="Log\Settings\LogSettings.cs" />
     <Compile Include="Log\Settings\XmlManifest.cs" />
     <Compile Include="Log\Settings\XmlSerializationException.cs" />
+    <Compile Include="Log\SkipLogingAttribute.cs" />
     <Compile Include="Log\StringLogParameter.cs" />
+    <Compile Include="Log\TypeStringMessageBuilder.cs" />
     <Compile Include="Log\Utilites.cs" />
     <Compile Include="Log\WinLogMessageType.cs" />
     <Compile Include="MVC\AvailableViewActionAttribute.cs" />
