@@ -130,48 +130,112 @@ namespace Cube.Log
         /// <param name="paramsHeader">Заголовок секции с параметрами</param>
         /// <param name="indent">Отступ для строк</param>
         /// <returns>Возвращает использованный для конкатинации экземпляр StringBuilder</returns>
-        public static StringBuilder BuildParameters(StringBuilder sb, IStringLogParameter[] parameters, string indent = "")
+        public StringBuilder AppendParameters(StringBuilder sb, ICollection<IStringLogParameter> parameters, string indent = "")
         {
             if (sb == null)
                 sb = new StringBuilder();
 
-            try
+            var paramsHeader = "Параметры: -----------------";
+
+            if (parameters == null || parameters.Count == 0)
+                return sb;
+
+            sb.Append(indent).AppendLine(paramsHeader);
+
+            foreach (var p in parameters)
             {
-                var paramsHeader = "Параметры: -----------------";
+                if (p == null)
+                    continue;
 
-                if (parameters == null || parameters.Length == 0)
-                    return sb;
-
-                sb.Append(indent).AppendLine(paramsHeader);
-                IStringLogParameter p = null;
-
-                for (int i = 0; i < parameters.Length; i++)
+                try
                 {
-                    p = parameters[i];
-                    if (p == null)
-                        continue;
-
-                    try
-                    {
-                        p.Append(sb, indent);
-                    }
-                    catch (Exception ex)
-                    {
-                        AppendLogParameterException(sb, p, ex, paramsHeader, indent, i);
-                    }
+                    p.Append(sb, indent);
                 }
-            }
-            catch (Exception ex)
-            {
-                BuildExceptionsHandler?.Invoke(ex, );
-                string msg = "Возникло исключение при сборке параметров лог-сообщения";
-                sb.Append(indent).AppendLine(msg);
-                AppendException(sb, ex, indent);
-
-                WindowsLoger.LogError(WinLogerSource, msg, ex);
+                catch (Exception ex)
+                {
+                    AppendLogParameterException(sb, p, ex, indent);
+                }
             }
 
             return sb;
+        }
+
+        /// <summary>
+        /// Логирование исключения при логировании параметра
+        /// </summary>
+        /// <param name="sb">Текущий построитель сообщения</param>
+        /// <param name="p">Логируемый параметр</param>
+        /// <param name="ex">Экземпляр исключения</param>
+        /// <param name="indent">Отступ текущей строки</param>
+        void AppendLogParameterException(StringBuilder sb, IStringLogParameter p, Exception ex, string indent)
+        {
+            /*
+            логируем исключение при добавлении параметра в сообщение
+
+            возможно получется невротбольшой лог - надеемся, что всё будет ок
+
+            параметр ожидается НЕ нулевым
+            */
+
+            string exCase = "<getException>";
+            string pName = exCase;
+            string pValue = exCase;
+
+            //чуть отступаем для вложенных исключений
+            var subExIndent = indent + Indent;
+            var nameValueIndent = subExIndent + Indent;
+            var data = new DefaultStringMessageData();
+
+            try
+            {
+                pName = p.Name;
+            }
+            catch (Exception nameEx)
+            {
+                data = new DefaultStringMessageData() {
+                    Message = "Возникло исключение при получении имени параметра логирования",
+                    Parameters = new StringLogParameter[] { new StringLogParameter("Тип параметра", p.GetType().FullName) },
+                    Exception = nameEx
+                };
+
+                AppendInternal(sb, ref data, nameValueIndent);
+            }
+
+            try
+            {
+                pValue = p.Value;
+            }
+            catch (Exception valueEx)
+            {
+                data = new DefaultStringMessageData()
+                {
+                    Message = "Возникло исключение при получении имени параметра логирования",
+                    Parameters = pName == exCase //если с именем проблем не было, логируем ещё и имя
+                        ? new StringLogParameter[] { new StringLogParameter("Тип параметра", p.GetType().FullName) }
+                        : new StringLogParameter[] { new StringLogParameter("Тип параметра", p.GetType().FullName), new StringLogParameter("Имя параметра", p.Name) },
+                    Exception = valueEx
+                };
+
+                AppendInternal(sb, ref data, nameValueIndent);
+            }
+
+            //если с именем и значением проблем не было, логируем ещё их
+            var subExParams = new List<IStringLogParameter>();
+            subExParams.Add(new StringLogParameter("Тип параметра", p.GetType().FullName));
+
+            if (pName != exCase)
+                subExParams.Add(new StringLogParameter("Имя параметра", pName));
+            if (pValue != exCase)
+                subExParams.Add(new StringLogParameter("Значение параметра", pValue));
+
+            data = new DefaultStringMessageData()
+            {
+                Message = "Возникло исключение при построении сообщения логирования для параметра",
+                Parameters = subExParams,
+                Exception = ex
+            };
+
+            AppendInternal(sb, ref data, subExIndent);
         }
 
         /// <summary>
@@ -252,21 +316,42 @@ namespace Cube.Log
         StringBuilder BuildInternal(ref DefaultStringMessageData data)
         {
             var sb = new StringBuilder();
+
+            return AppendInternal(sb, ref data);
+        }
+
+        /// <summary>
+        /// Добавление данных к логируемой строке
+        /// </summary>
+        /// <param name="sb">Построитель логируемой строки</param>
+        /// <param name="data">Логируемые данные</param>
+        /// <param name="indent">Отступ строки</param>
+        /// <returns>Возвращает экземпляр текущего построителя</returns>
+        StringBuilder AppendInternal(StringBuilder sb, ref DefaultStringMessageData data, string indent = null)
+        {
             try
             {
+                if (indent == null)
+                    indent = string.Empty;
+
+                sb.Append(indent).Append(data.Message.LogValue());
+
+                if (data.HasParameters)
+                    AppendParameters(sb, data.Parameters, indent);
+
                 if (data.HasException)
-                    AppendException(sb, data.Exception);
+                    AppendException(sb, data.Exception, indent);
 
                 return sb;
             }
             catch (Exception ex)
             {
-                var parameters
 
-                BuildExceptionsHandler?.Invoke(new DefaultStringMessageData() {
+                BuildExceptionsHandler?.Invoke(new DefaultStringMessageData()
+                {
                     Message = "Возникло исключение при построении сообщения логирования",
                     Exception = ex,
-                    Parameters = data.HasParameters
+                    Parameters = data.Parameters
                 });
 
                 return new StringBuilder("Возникло исключение при построении сообщения логирования: ").Append(ex.Message);
