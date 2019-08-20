@@ -3,14 +3,14 @@
     /// <summary>
     /// Конечная точка логирования
     /// </summary>
-    /// <typeparam name="TData">Тип логируемых данных</typeparam>
-    public interface ILogEndpoint<TData>
+    /// <typeparam name="TMessage">Тип логируемого сообщения</typeparam>
+    public interface ILogEndpoint<TMessage>
     {
         /// <summary>
         /// Логирование
         /// </summary>
-        /// <param name="data">Логируемые данные</param>
+        /// <param name="message">Логируемое сообщение</param>
         /// <returns>Результат операции логирования</returns>
-        bool Log(TData data);
+        bool Log(TMessage message);
     }
 }
