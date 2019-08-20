@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Cube.Log
 {
@@ -10,9 +6,20 @@ namespace Cube.Log
     /// Менеджер логирования
     /// </summary>
     /// <typeparam name="TContext">Тип контекста логирования</typeparam>
-    public abstract class LogManager<TContext>
+    /// <typeparam name="TData">Тип логируемых данных</typeparam>
+    /// <typeparam name="TMessage">Тип сообщения</typeparam>
+    public abstract class LogManager<TContext, TData, TMessage>
         where TContext : ILogingContext
     {
+        /// <summary>
+        /// Конечные точки логирования
+        /// </summary>
+        public IReadOnlyCollection<ILogEndpoint<TMessage>> Endpoints { get; private set; }
+        /// <summary>
+        /// Построитель сообщения
+        /// </summary>
+        public IMeassageBuilder<TData, TMessage> MeassageBuilder { get; private set; }
+
         /// <summary>
         /// Проверка на пропуск логирования для текущего сообщения
         /// </summary>
