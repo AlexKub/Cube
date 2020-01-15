@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Define a ViewModelProperty</Title>
+      <Shortcut>vmp</Shortcut>
+      <Description>Code snippet for a property of ViewModel</Description>
+      <Author>Kubasov A. A.</Author>
+      <SnippetTypes>
+        <SnippetType>Extension</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>type</ID>
+          <ToolTip>Property Type</ToolTip>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Property Name</ToolTip>
+          <Default>Property</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[ private $type$ m_$name$;
+        /// <summary>
+        /// Возвращает или задаёт $end$
+        /// </summary>
+        public $type$ $name$ { get { return m_$name$; } set { m_$name$ = value; OnPropertyChanged(); } }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
