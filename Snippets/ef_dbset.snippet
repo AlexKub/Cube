@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Вставка EntityFramework DbSet в DbContext</Title>
+      <Author>Kubasov.A</Author>
+      <Description>Декларация DbSet в DbContext</Description>
+      <Shortcut>dbset</Shortcut>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.EntityFrameworkCore</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>modeltype</ID>
+          <ToolTip>Replace with the name of the model of the DbSet.</ToolTip>
+          <Default>object</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[public DbSet<$modeltype$> $modeltype$s { get; set; }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
